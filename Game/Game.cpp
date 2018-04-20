@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "textureManager.hpp"
 
 SDL_Texture* playerTexture;
 SDL_Rect playerRect;
@@ -42,9 +43,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         running = false;//Se l'inizializzazione non ha successo non facciamo partire il game loop
     }
     
-    SDL_Surface* tmpSurface = IMG_Load("Game/assets/Person.png");
-    playerTexture = SDL_CreateTextureFromSurface(renderer, tmpSurface);
-    SDL_FreeSurface(tmpSurface);
+    playerTexture = textureManager::loadTexture("Game/assets/Person.png", renderer);
 }
 
 void Game::handleEvents()
@@ -69,12 +68,6 @@ void Game::update()
     playerRect.w = 46.5;
     playerRect.x = (hRes/2)-playerRect.w/2; //Personaggio al centro dello schermo.
     playerRect.y = (vRes/2)-playerRect.h/2;
-    
-    const Uint8* tastiera = SDL_GetKeyboardState(NULL);
-    if(tastiera[SDL_SCANCODE_UP])
-    {
-        playerRect.y = playerRect.y - 1;
-    }
 }
 
 void Game::render()
