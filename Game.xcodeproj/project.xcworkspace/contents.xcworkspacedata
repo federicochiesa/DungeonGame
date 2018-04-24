@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:../Game">
+      location = "group:/Users/Federico/Desktop/Gioco/Game/assets/Image.png">
+   </FileRef>
+   <FileRef
+      location = "absolute:../Game/assets/Person copy.png">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

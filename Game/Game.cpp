@@ -1,9 +1,9 @@
 #include "Game.hpp"
 #include "textureManager.hpp"
+#include "gameObject.hpp"
 
-SDL_Texture* playerTexture;
-SDL_Rect playerRect;
-
+gameObject* player;
+gameObject* enemy;
 
 Game::Game()
 {}
@@ -42,8 +42,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
     {
         running = false;//Se l'inizializzazione non ha successo non facciamo partire il game loop
     }
-    
-    playerTexture = textureManager::loadTexture("Game/assets/Person.png", renderer);
+    player = new gameObject("Game/assets/Person.png", renderer, 0, 0);
+    enemy = new gameObject("Game/assets/Person2.png", renderer, 20, 50);
 }
 
 void Game::handleEvents()
@@ -63,17 +63,15 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    
-    playerRect.h = 75;
-    playerRect.w = 46.5;
-    playerRect.x = (hRes/2)-playerRect.w/2; //Personaggio al centro dello schermo.
-    playerRect.y = (vRes/2)-playerRect.h/2;
+    player->update();
+    enemy->update();
 }
 
 void Game::render()
 {
     SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, playerTexture, NULL, &playerRect);
+    player->render();
+    enemy->render();
     SDL_RenderPresent(renderer);
 }
 
