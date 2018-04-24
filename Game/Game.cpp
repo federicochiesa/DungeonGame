@@ -1,9 +1,12 @@
 #include "Game.hpp"
 #include "textureManager.hpp"
 #include "gameObject.hpp"
+#include "map.hpp"
 
-gameObject* player;
-gameObject* enemy;
+gameObject* player = nullptr;
+gameObject* enemy = nullptr;
+map* Map = nullptr;
+SDL_Renderer* Game::renderer = nullptr;
 
 Game::Game()
 {}
@@ -42,8 +45,10 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
     {
         running = false;//Se l'inizializzazione non ha successo non facciamo partire il game loop
     }
-    player = new gameObject("Game/assets/Person.png", renderer, 0, 0);
-    enemy = new gameObject("Game/assets/Person2.png", renderer, 20, 50);
+    
+    player = new gameObject("Game/assets/Tileset.png", 0, 0);
+    enemy = new gameObject("Game/assets/Tileset.png", 20, 50);
+    Map = new map();
 }
 
 void Game::handleEvents()
@@ -70,6 +75,7 @@ void Game::update()
 void Game::render()
 {
     SDL_RenderClear(renderer);
+    Map->drawMap();
     player->render();
     enemy->render();
     SDL_RenderPresent(renderer);

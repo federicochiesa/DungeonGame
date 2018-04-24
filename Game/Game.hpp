@@ -19,14 +19,13 @@ public:
     int gethRes(){return hRes;};
     int getvRes(){return vRes;};
     bool isRunning(){return running;};
-    
+    static SDL_Renderer* renderer;
     
 private:
     int hRes = 800;
     int vRes = 600;
     bool running; //Se il gioco sta girando o no.
     SDL_Window *window; //Finestra del gioco
-    SDL_Renderer *renderer; //Renderer di default
 };
 
 #endif /* Game_hpp */
