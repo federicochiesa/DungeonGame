@@ -2,10 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Federico/Desktop/Gioco/Game/assets/Image.png">
+      location = "group:/Users/Federico/Desktop/Gioco/Game/findpath.cpp">
    </FileRef>
    <FileRef
-      location = "absolute:../Game/assets/Person copy.png">
+      location = "group:/Users/Federico/Desktop/Gioco/Game/fsa.h">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/Federico/Desktop/Gioco/Game/stlastar.h">
    </FileRef>
    <FileRef
       location = "self:">

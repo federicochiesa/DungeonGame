@@ -28,8 +28,8 @@ void gameObject::update()
     
     dstRect.x = xpos;
     dstRect.y = ypos;
-    dstRect.h = 64;
-    dstRect.w = 64;
+    dstRect.h = 32;
+    dstRect.w = 32;
 }
 
 void gameObject::render()

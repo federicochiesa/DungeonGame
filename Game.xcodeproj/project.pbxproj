@@ -29,6 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A34E66720A70922002625A1 /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
 		7A570E72208F7A4E00E4EAB6 /* Person2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Person2.png; sourceTree = "<group>"; };
 		7A570E73208F801F00E4EAB6 /* Tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset.png; sourceTree = "<group>"; };
 		7A570E7A208F829900E4EAB6 /* map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = map.cpp; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 				7A570E7D208F8A9400E4EAB6 /* water.png */,
 				7A641BA9208640AA0027BDB7 /* Person.png */,
 				7A570E72208F7A4E00E4EAB6 /* Person2.png */,
+				7A34E66720A70922002625A1 /* brick.png */,
 				7A570E73208F801F00E4EAB6 /* Tileset.png */,
 			);
 			path = assets;
@@ -292,6 +294,7 @@
 		7A641B9E2086180A0027BDB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83B585W5MV;
@@ -307,6 +310,7 @@
 		7A641B9F2086180A0027BDB7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83B585W5MV;

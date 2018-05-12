@@ -1,4 +1,3 @@
-
 #ifndef Game_hpp
 #define Game_hpp
 #include "SDL2/SDL.h"
@@ -22,8 +21,8 @@ public:
     static SDL_Renderer* renderer;
     
 private:
-    int hRes = 800;
-    int vRes = 600;
+    int hRes = 640;
+    int vRes = 480;
     bool running; //Se il gioco sta girando o no.
     SDL_Window *window; //Finestra del gioco
 };

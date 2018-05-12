@@ -8,37 +8,14 @@
 
 #include "map.hpp"
 #include "textureManager.hpp"
-int lvl1[20][25] =
-{
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-};
 
 map::map()
 {
-    dirt = textureManager::loadTexture("Game/assets/dirt.png");
+    wall = textureManager::loadTexture("Game/assets/brick.png");
     grass = textureManager::loadTexture("Game/assets/grass.png");
     water = textureManager::loadTexture("Game/assets/water.png");
     
-    loadMap(lvl1);
+    loadMap(lvlMap);
     
     src.x = src.y = 0;
     src.w = src.h = 16;
@@ -46,11 +23,12 @@ map::map()
     
     dst.x = dst.y = 0;
 }
-void map::loadMap(int arr[20][25])
+
+void map::loadMap(int arr[mapHeight][mapWidth])
 {
-    for (int row = 0; row < 20; row++) {
-        for (int col = 0; col<25; col++) {
-            Map[row][col] = arr[row][col];
+    for (int row = 0; row < mapWidth; row++) {
+        for (int col = 0; col < mapHeight; col++) {
+            lvlMap[row][col] = arr[row][col];
         }
     }
 }
@@ -60,7 +38,7 @@ void map::drawMap()
     int type = 0;
     for (int row = 0; row < 20; row++) {
         for (int col = 0; col<25; col++) {
-            type = Map[row][col];
+            type = lvlMap[row][col];
             
             dst.x = col * 32;
             dst.y = row * 32;
@@ -72,11 +50,16 @@ void map::drawMap()
                 case 1:
                     textureManager::Draw(grass, src, dst);
                     break;
-                case 2:
-                     textureManager::Draw(dirt, src, dst);
+                case 9:
+                     textureManager::Draw(wall, src, dst);
                     break;
                     
             }
         }
     }
+}
+
+int* map::getMap()
+{
+    return *lvlMap;
 }

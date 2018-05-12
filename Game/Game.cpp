@@ -21,7 +21,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         flags=SDL_WINDOW_FULLSCREEN;
     }
     
-    if(!SDL_Init(SDL_INIT_EVERYTHING))//Se l'inizializzazione ha successo...
+    if(!SDL_Init(SDL_INIT_EVERYTHING))//Se l'inizializzazione ha successo...0
     {
         std::cout << "SDL Inizializzato" << std::endl;
         
@@ -46,8 +46,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         running = false;//Se l'inizializzazione non ha successo non facciamo partire il game loop
     }
     
-    player = new gameObject("Game/assets/Tileset.png", 0, 0);
-    enemy = new gameObject("Game/assets/Tileset.png", 20, 50);
+    player = new gameObject("Game/assets/Tileset.png", hRes/2-32, vRes/2-32);
     Map = new map();
 }
 
@@ -69,7 +68,6 @@ void Game::handleEvents()
 void Game::update()
 {
     player->update();
-    enemy->update();
 }
 
 void Game::render()
@@ -77,7 +75,6 @@ void Game::render()
     SDL_RenderClear(renderer);
     Map->drawMap();
     player->render();
-    enemy->render();
     SDL_RenderPresent(renderer);
 }
 
