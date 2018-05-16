@@ -2,6 +2,7 @@
 #include "textureManager.hpp"
 #include "gameObject.hpp"
 #include "map.hpp"
+#include "textOverlay.hpp"
 
 gameObject* player = nullptr;
 gameObject* enemy = nullptr;

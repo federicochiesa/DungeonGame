@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A1CF23B20AC7365001ACE7B /* findpath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A1CF23820AC7365001ACE7B /* findpath.cpp */; };
+		7A1CF23E20AC764D001ACE7B /* textOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A1CF23C20AC764D001ACE7B /* textOverlay.cpp */; };
+		7A1CF24020AC76F1001ACE7B /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1CF23F20AC76F1001ACE7B /* SDL2_ttf.framework */; };
 		7A570E7C208F829900E4EAB6 /* map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A570E7A208F829900E4EAB6 /* map.cpp */; };
 		7A641B9A2086180A0027BDB7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A641B992086180A0027BDB7 /* main.cpp */; };
 		7A641BA2208618470027BDB7 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A641BA1208618470027BDB7 /* SDL2.framework */; };
@@ -30,9 +31,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7A1CF23820AC7365001ACE7B /* findpath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = findpath.cpp; sourceTree = "<group>"; };
 		7A1CF23920AC7365001ACE7B /* stlastar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stlastar.h; sourceTree = "<group>"; };
 		7A1CF23A20AC7365001ACE7B /* fsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fsa.h; sourceTree = "<group>"; };
+		7A1CF23C20AC764D001ACE7B /* textOverlay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = textOverlay.cpp; sourceTree = "<group>"; };
+		7A1CF23D20AC764D001ACE7B /* textOverlay.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = textOverlay.hpp; sourceTree = "<group>"; };
+		7A1CF23F20AC76F1001ACE7B /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 		7A34E66720A70922002625A1 /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
 		7A570E73208F801F00E4EAB6 /* Tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset.png; sourceTree = "<group>"; };
 		7A570E7A208F829900E4EAB6 /* map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = map.cpp; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A1CF24020AC76F1001ACE7B /* SDL2_ttf.framework in Frameworks */,
 				7A641BA720863EC00027BDB7 /* SDL2_image.framework in Frameworks */,
 				7A641BA2208618470027BDB7 /* SDL2.framework in Frameworks */,
 			);
@@ -88,13 +92,14 @@
 				7A641B992086180A0027BDB7 /* main.cpp */,
 				7A570E7A208F829900E4EAB6 /* map.cpp */,
 				7A570E7B208F829900E4EAB6 /* map.hpp */,
+				7A1CF23C20AC764D001ACE7B /* textOverlay.cpp */,
+				7A1CF23D20AC764D001ACE7B /* textOverlay.hpp */,
 				7A641BA320861B3B0027BDB7 /* Game.cpp */,
 				7A641BA420861B3B0027BDB7 /* Game.hpp */,
 				7AD4E81C208F6B570012DB7A /* gameObject.cpp */,
 				7AD4E81D208F6B570012DB7A /* gameObject.hpp */,
 				7A6C54E7208A1ED7004F8C5C /* textureManager.cpp */,
 				7A6C54E8208A1ED7004F8C5C /* textureManager.hpp */,
-				7A1CF23820AC7365001ACE7B /* findpath.cpp */,
 				7A1CF23A20AC7365001ACE7B /* fsa.h */,
 				7A1CF23920AC7365001ACE7B /* stlastar.h */,
 			);
@@ -104,6 +109,7 @@
 		7A641BA0208618460027BDB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A1CF23F20AC76F1001ACE7B /* SDL2_ttf.framework */,
 				7A641BA620863EC00027BDB7 /* SDL2_image.framework */,
 				7A641BA1208618470027BDB7 /* SDL2.framework */,
 			);
@@ -178,10 +184,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A1CF23E20AC764D001ACE7B /* textOverlay.cpp in Sources */,
 				7AD4E81E208F6B570012DB7A /* gameObject.cpp in Sources */,
 				7A6C54E9208A1ED7004F8C5C /* textureManager.cpp in Sources */,
 				7A641B9A2086180A0027BDB7 /* main.cpp in Sources */,
-				7A1CF23B20AC7365001ACE7B /* findpath.cpp in Sources */,
 				7A570E7C208F829900E4EAB6 /* map.cpp in Sources */,
 				7A641BA520861B3B0027BDB7 /* Game.cpp in Sources */,
 			);
