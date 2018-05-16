@@ -20,7 +20,6 @@ map::map()
     src.x = src.y = 0;
     src.w = src.h = 16;
     dst.w = dst.h = 32;
-    
     dst.x = dst.y = 0;
 }
 
@@ -45,15 +44,14 @@ void map::drawMap()
             
             switch (type) {
                 case 0:
-                    textureManager::Draw(water, src, dst);
+                    textureManager::Draw(grass, src, dst);
                     break;
                 case 1:
-                    textureManager::Draw(grass, src, dst);
+                    textureManager::Draw(water, src, dst);
                     break;
                 case 9:
                      textureManager::Draw(wall, src, dst);
                     break;
-                    
             }
         }
     }
