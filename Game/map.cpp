@@ -15,7 +15,6 @@ map::map()
     grass = textureManager::loadTexture("Game/assets/grass.png");
     water = textureManager::loadTexture("Game/assets/water.png");
     
-    loadMap(lvlMap);
     
     src.x = src.y = 0;
     src.w = src.h = 16;
@@ -23,26 +22,20 @@ map::map()
     dst.x = dst.y = 0;
 }
 
-void map::loadMap(int arr[mapHeight][mapWidth])
-{
-    for (int row = 0; row < mapWidth; row++) {
-        for (int col = 0; col < mapHeight; col++) {
-            lvlMap[row][col] = arr[row][col];
-        }
-    }
-}
-
 void map::drawMap()
 {
     int type = 0;
-    for (int row = 0; row < 20; row++) {
-        for (int col = 0; col<25; col++) {
+    for (int row = 0; row < 20; row++)
+    {
+        for (int col = 0; col<25; col++)
+        {
             type = lvlMap[row][col];
             
             dst.x = col * 32;
             dst.y = row * 32;
             
-            switch (type) {
+            switch (type)
+            {
                 case 0:
                     textureManager::Draw(grass, src, dst);
                     break;
@@ -57,7 +50,8 @@ void map::drawMap()
     }
 }
 
-int* map::getMap()
+int map::getMap( int x, int y )
 {
-    return *lvlMap;
+    if( x < 0 || x >= mapWidth || y < 0 || y >= mapHeight) return 9;    
+    return lvlMap[x][y];
 }

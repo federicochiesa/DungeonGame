@@ -1,5 +1,6 @@
 #include "Game.hpp"
 
+
 Game *game = nullptr;
 
 int main(int argc, char *args[])
@@ -12,7 +13,7 @@ int main(int argc, char *args[])
     
     game= new Game();
     
-    game->init("Titolo Finestra", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, game->gethRes(), game->getvRes(), false);
+    game->init("Algoritmo A*", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, game->gethRes(), game->getvRes(), false);
     
     while (game->isRunning()) //Game loop
     {

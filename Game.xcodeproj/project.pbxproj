@@ -15,6 +15,7 @@
 		7A641BA520861B3B0027BDB7 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A641BA320861B3B0027BDB7 /* Game.cpp */; };
 		7A641BA720863EC00027BDB7 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A641BA620863EC00027BDB7 /* SDL2_image.framework */; };
 		7A6C54E9208A1ED7004F8C5C /* textureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A6C54E7208A1ED7004F8C5C /* textureManager.cpp */; };
+		7A887AAF20C975F20053CC2A /* MapSearchNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A887AAD20C975F20053CC2A /* MapSearchNode.cpp */; };
 		7AD4E81E208F6B570012DB7A /* gameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4E81C208F6B570012DB7A /* gameObject.cpp */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		7A6C54E7208A1ED7004F8C5C /* textureManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = textureManager.cpp; sourceTree = "<group>"; };
 		7A6C54E8208A1ED7004F8C5C /* textureManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = textureManager.hpp; sourceTree = "<group>"; };
 		7A6DFECB20A9D0A800CFCD03 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
+		7A887AAD20C975F20053CC2A /* MapSearchNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapSearchNode.cpp; sourceTree = "<group>"; };
+		7A887AAE20C975F20053CC2A /* MapSearchNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MapSearchNode.hpp; sourceTree = "<group>"; };
 		7AD4E81C208F6B570012DB7A /* gameObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gameObject.cpp; sourceTree = "<group>"; };
 		7AD4E81D208F6B570012DB7A /* gameObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = gameObject.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +95,8 @@
 				7A641B992086180A0027BDB7 /* main.cpp */,
 				7A570E7A208F829900E4EAB6 /* map.cpp */,
 				7A570E7B208F829900E4EAB6 /* map.hpp */,
+				7A887AAD20C975F20053CC2A /* MapSearchNode.cpp */,
+				7A887AAE20C975F20053CC2A /* MapSearchNode.hpp */,
 				7A1CF23C20AC764D001ACE7B /* textOverlay.cpp */,
 				7A1CF23D20AC764D001ACE7B /* textOverlay.hpp */,
 				7A641BA320861B3B0027BDB7 /* Game.cpp */,
@@ -185,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A1CF23E20AC764D001ACE7B /* textOverlay.cpp in Sources */,
+				7A887AAF20C975F20053CC2A /* MapSearchNode.cpp in Sources */,
 				7AD4E81E208F6B570012DB7A /* gameObject.cpp in Sources */,
 				7A6C54E9208A1ED7004F8C5C /* textureManager.cpp in Sources */,
 				7A641B9A2086180A0027BDB7 /* main.cpp in Sources */,

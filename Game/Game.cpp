@@ -3,6 +3,11 @@
 #include "gameObject.hpp"
 #include "map.hpp"
 #include "textOverlay.hpp"
+#include "stlastar.h"
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+
 
 gameObject* player = nullptr;
 gameObject* enemy = nullptr;

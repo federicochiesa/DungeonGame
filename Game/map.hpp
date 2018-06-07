@@ -19,10 +19,9 @@ private:
     SDL_Texture* wall;
     SDL_Texture* grass;
     SDL_Texture* water;
-    
     static const int mapHeight = 15;
     static const int mapWidth = 20;
-    int lvlMap[mapHeight][mapWidth] =
+    constexpr static const int lvlMap[mapHeight][mapWidth] =
     {
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -40,12 +39,13 @@ private:
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     };
+
 public:
     map();
     ~map();
     void loadMap(int arr[mapHeight][mapWidth]);
     void drawMap();
-    int* getMap();
+    static int getMap(int x, int y);
 };
 
 #endif /* map_hpp */
