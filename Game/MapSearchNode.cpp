@@ -1,5 +1,6 @@
 #include "MapSearchNode.hpp"
 
+
 bool MapSearchNode::IsSameState( MapSearchNode &rhs )
 {
     if( (x == rhs.x) && (y == rhs.y) ) return true;
@@ -73,51 +74,3 @@ float MapSearchNode::GetCost( MapSearchNode &successor )
 {
     return (float) map::getMap( x, y );
 }
-
-int MapSearchNode::computePath()
-{
-    AStarSearch<MapSearchNode> astarsearch;
-    unsigned int SearchCount = 0;
-    const unsigned int NumSearches = 1;
-    while(SearchCount < NumSearches)
-    {
-        MapSearchNode nodeStart;
-        nodeStart.x = 7;
-        nodeStart.y = 9;
-        MapSearchNode nodeEnd;
-        nodeEnd.x = 13;
-        nodeEnd.y = 18;
-        
-        astarsearch.SetStartAndGoalStates( nodeStart, nodeEnd );
-        unsigned int SearchState;
-        unsigned int SearchSteps = 0;
-        do
-        {
-            SearchState = astarsearch.SearchStep();
-            SearchSteps++;
-        }
-        while( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_SEARCHING );
-        if( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_SUCCEEDED )
-        {
-            cout << "Search found goal state\n";
-            MapSearchNode *node = astarsearch.GetSolutionStart();
-            int steps = 0;
-            node->PrintNodeInfo();
-            for( ;; )
-            {
-                node = astarsearch.GetSolutionNext();
-                if( !node ) break;
-                node->PrintNodeInfo();
-                steps ++;
-            };
-            cout << "Solution steps: " << steps << endl;
-            astarsearch.FreeSolutionNodes();
-        }
-        else if( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_FAILED ) cout << "Search terminated. Did not find goal state\n";
-        cout << "SearchSteps : " << SearchSteps << "\n";
-        SearchCount ++;
-        astarsearch.EnsureMemoryFreed();
-    }
-    return 0;
-}
-

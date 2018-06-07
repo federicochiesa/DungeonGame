@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
+#include <vector>
 #include "map.hpp"
 
 class MapSearchNode

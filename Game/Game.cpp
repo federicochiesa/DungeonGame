@@ -3,11 +3,7 @@
 #include "gameObject.hpp"
 #include "map.hpp"
 #include "textOverlay.hpp"
-#include "stlastar.h"
-#include <iostream>
-#include <stdio.h>
-#include <math.h>
-
+#include "MapSearchNode.hpp"
 
 gameObject* player = nullptr;
 gameObject* enemy = nullptr;
@@ -52,8 +48,52 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         running = false;//Se l'inizializzazione non ha successo non facciamo partire il game loop
     }
     
-    player = new gameObject("Game/assets/Tileset.png", hRes/2-32, vRes/2-32);
+    player = new gameObject("Game/assets/Tileset.png", hRes/2-32, vRes/2-16);
     Map = new map();
+    //Start A* block
+    AStarSearch<MapSearchNode> astarsearch;
+    unsigned int SearchCount = 0;
+    const unsigned int NumSearches = 1;
+    while(SearchCount < NumSearches)
+    {
+        MapSearchNode nodeStart;
+        nodeStart.x = 7;
+        nodeStart.y = 9;
+        MapSearchNode nodeEnd;
+        nodeEnd.x = 13;
+        nodeEnd.y = 18;
+        
+        astarsearch.SetStartAndGoalStates( nodeStart, nodeEnd );
+        unsigned int SearchState;
+        unsigned int SearchSteps = 0;
+        do
+        {
+            SearchState = astarsearch.SearchStep();
+            SearchSteps++;
+        }
+        while( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_SEARCHING );
+        if( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_SUCCEEDED )
+        {
+            cout << "Search found goal state\n";
+            MapSearchNode *node = astarsearch.GetSolutionStart();
+            int steps = 0;
+            node->PrintNodeInfo();
+            for( ;; )
+            {
+                node = astarsearch.GetSolutionNext();
+                if( !node ) break;
+                node->PrintNodeInfo();
+                steps ++;
+            };
+            cout << "Solution steps: " << steps << endl;
+            astarsearch.FreeSolutionNodes();
+        }
+        else if( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_FAILED ) cerr << "Search terminated. Did not find goal state\n";
+        cout << "SearchSteps : " << SearchSteps << "\n";
+        SearchCount ++;
+        astarsearch.EnsureMemoryFreed();
+    }
+    //End A* block
 }
 
 void Game::handleEvents()
