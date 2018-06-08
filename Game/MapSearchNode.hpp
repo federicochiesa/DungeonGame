@@ -1,3 +1,5 @@
+#ifndef MapSearchNode_hpp
+#define MapSearchNode_hpp
 #include "stlastar.h"
 #include <iostream>
 #include <stdio.h>
@@ -21,6 +23,5 @@ public:
     bool IsSameState( MapSearchNode &rhs );
     
     void PrintNodeInfo();
-    int computePath();
-    
 };
+#endif

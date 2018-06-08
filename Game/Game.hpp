@@ -3,6 +3,11 @@
 #include "SDL2/SDL.h"
 #include <iostream>
 #include "SDL2_image/SDL_image.h"
+#include "textureManager.hpp"
+#include "gameObject.hpp"
+#include "map.hpp"
+#include <vector>
+#include "MapSearchNode.hpp"
 
 class Game{
 public:
@@ -22,9 +27,13 @@ public:
     
 private:
     int hRes = 640;
-    int vRes = 480;
+    int vRes = 640;
     bool running; //Se il gioco sta girando o no.
     SDL_Window *window; //Finestra del gioco
+    const int startX = 4;
+    const int startY = 3;
+    const int endX = 19;
+    const int endY = 3;
 };
 
 #endif /* Game_hpp */

@@ -19,7 +19,7 @@ private:
     SDL_Texture* wall;
     SDL_Texture* grass;
     SDL_Texture* water;
-    static const int mapHeight = 15;
+    static const int mapHeight = 20;
     static const int mapWidth = 20;
     constexpr static const int lvlMap[mapHeight][mapWidth] =
     {
@@ -38,6 +38,11 @@ private:
         {1,9,1,9,1,9,9,9,1,9,1,9,1,9,1,9,9,9,1,1},
         {1,9,1,9,1,9,9,9,1,9,1,9,1,9,1,9,9,9,1,1},
         {1,9,1,1,1,1,9,9,1,9,1,9,1,1,1,1,9,9,1,1},
+        {1,9,1,1,9,1,1,1,1,9,1,1,1,1,9,1,1,1,1,1},
+        {1,9,9,9,9,1,1,1,1,1,1,9,9,9,9,1,1,1,1,1},
+        {1,1,9,9,9,9,9,9,9,1,1,1,9,9,9,1,9,9,9,9},
+        {1,9,1,1,1,1,1,1,1,1,1,9,1,1,1,1,1,1,1,1},
+        {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
 
 public:
