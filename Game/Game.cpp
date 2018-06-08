@@ -70,7 +70,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         while( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_SEARCHING );
         if( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_SUCCEEDED )
         {
-            cout << "Goal Found! Showing path...\n";
+            cout << "Traguardo Trovato! Visualizzo percorso...\n";
             MapSearchNode *node = astarsearch.GetSolutionStart();
             int steps = 0;
             directions.push_back(node);
@@ -81,16 +81,16 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
                 directions.push_back(node);
                 steps ++;
             };
-            cout << "Solution steps: " << steps << endl;
+            cout << "Passi al traguardo: " << steps << endl;
             astarsearch.FreeSolutionNodes();
         }
         else if( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_FAILED ){
-            cerr << "ERROR: Goal not Found! Exiting...";
+            cerr << "ERRORE: Traguardo non trovato! Termino programma...";
             SDL_Delay(1000);
             astarsearch.EnsureMemoryFreed();
             clean();
         }
-        cout << "SearchSteps : " << SearchSteps << "\n";
+        cout << "Passi Ricerca : " << SearchSteps << "\n";
         SearchCount ++;
         astarsearch.EnsureMemoryFreed();
     }
