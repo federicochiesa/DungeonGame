@@ -88,7 +88,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
             cerr << "ERRORE: Traguardo non trovato! Termino programma...";
             SDL_Delay(1000);
             astarsearch.EnsureMemoryFreed();
-            clean();
+            running = false;
         }
         cout << "Passi Ricerca : " << SearchSteps << "\n";
         SearchCount ++;
