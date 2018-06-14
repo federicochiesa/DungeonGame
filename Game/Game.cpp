@@ -116,7 +116,10 @@ void Game::handleEvents()
 
 void Game::update()
 {
-    player->update();
+    if (!player->doneMoving) {
+            player->update();
+    }
+    else running = false;
 }
 
 void Game::render()

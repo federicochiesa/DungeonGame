@@ -21,6 +21,7 @@ public:
     void render();
     std::vector<MapSearchNode*> directions;
     bool hasReceivedDirections;
+    bool doneMoving;
 private:
     int xpos;
     int ypos;

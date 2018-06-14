@@ -14,7 +14,9 @@ gameObject::gameObject(const char* texturesheet, int x, int y)
     
     xpos = x;
     ypos = y;
-    bool hasReceivedDirections = false;
+    hasReceivedDirections = false;
+    doneMoving = false;
+    
 }
 
 void gameObject::update()
@@ -39,6 +41,8 @@ void gameObject::update()
     {
         dstRect.x = (*directions.end())->x;
         dstRect.y = (*directions.end())->y;
+        SDL_Delay(2000);
+        doneMoving = true;
     }
     else if (playerMoves)
     {
@@ -46,12 +50,6 @@ void gameObject::update()
         dstRect.x = ((*it) -> y)*32;
         it++;
         SDL_Delay(500);
-    }
-    else
-    {
-        dstRect.x = xpos*32;
-        dstRect.y = ypos*32;
-        SDL_Delay(2000);
     }
 }
 
