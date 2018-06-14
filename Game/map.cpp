@@ -36,10 +36,10 @@ void map::drawMap()
             
             switch (type)
             {
-                case 0:
+                case 1:
                     textureManager::Draw(grass, src, dst);
                     break;
-                case 1:
+                case 2:
                     textureManager::Draw(water, src, dst);
                     break;
                 case 9:
