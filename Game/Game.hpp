@@ -1,13 +1,10 @@
 #ifndef Game_hpp
 #define Game_hpp
 #include "SDL2/SDL.h"
-#include <iostream>
 #include "SDL2_image/SDL_image.h"
-#include "textureManager.hpp"
 #include "gameObject.hpp"
 #include "map.hpp"
-#include <vector>
-#include "MapSearchNode.hpp"
+
 
 class Game{
 public:
@@ -34,6 +31,7 @@ private:
     const int startY = 3;
     const int endX = 19;
     const int endY = 3;
+    AStarSearch<MapSearchNode> astarsearch;
 };
 
 #endif /* Game_hpp */

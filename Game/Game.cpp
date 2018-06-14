@@ -46,10 +46,9 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
     player = new gameObject("Game/assets/Tileset.png", startX*32-32, startY*32-32);
     Map = new map();
     //Start A* block
-    AStarSearch<MapSearchNode> astarsearch;
+
     unsigned int SearchCount = 0;
     const unsigned int NumSearches = 1;
-    std::vector<MapSearchNode*> directions;
     while(SearchCount < NumSearches)
     {
         MapSearchNode nodeStart;
@@ -73,18 +72,19 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
             cout << "Traguardo Trovato! Visualizzo percorso...\n";
             MapSearchNode *node = astarsearch.GetSolutionStart();
             int steps = 0;
-            directions.push_back(node);
+            player->directions.push_back(node);
             for( ;; )
             {
                 node = astarsearch.GetSolutionNext();
                 if( !node ) break;
-                directions.push_back(node);
+                player->directions.push_back(node);
                 steps ++;
             };
             cout << "Passi al traguardo: " << steps << endl;
             astarsearch.FreeSolutionNodes();
         }
-        else if( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_FAILED ){
+        else if( SearchState == AStarSearch<MapSearchNode>::SEARCH_STATE_FAILED )
+        {
             cerr << "ERRORE: Traguardo non trovato! Termino programma...";
             SDL_Delay(1000);
             astarsearch.EnsureMemoryFreed();
@@ -94,8 +94,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
         SearchCount ++;
         astarsearch.EnsureMemoryFreed();
     }
+    player->hasReceivedDirections = true;
     //End A* block
-    
 }
 
 void Game::handleEvents()
@@ -103,7 +103,8 @@ void Game::handleEvents()
     SDL_Event event;
     
     SDL_PollEvent(&event);
-    switch (event.type) {
+    switch (event.type)
+    {
         case SDL_QUIT:
             running = false;
             break;

@@ -9,7 +9,8 @@
 #ifndef gameObject_hpp
 #define gameObject_hpp
 
-#include "Game.hpp"
+#include "SDL2/SDL.h"
+#include "MapSearchNode.hpp"
 
 class gameObject
 {
@@ -18,13 +19,16 @@ public:
     ~gameObject();
     void update();
     void render();
-    
+    std::vector<MapSearchNode*> directions;
+    bool hasReceivedDirections;
 private:
     int xpos;
     int ypos;
     SDL_Texture* objectTexture;
     SDL_Rect srcRect, dstRect;
     SDL_Renderer* renderer;
+    std::vector<MapSearchNode*>::iterator it;
+    bool playerMoves;
 };
 
 #endif /* gameObject_hpp */

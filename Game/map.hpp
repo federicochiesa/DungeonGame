@@ -9,7 +9,7 @@
 #ifndef map_hpp
 #define map_hpp
 
-#include "Game.hpp"
+#include "SDL2/SDL.h"
 
 class map
 {

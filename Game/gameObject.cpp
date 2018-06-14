@@ -14,6 +14,7 @@ gameObject::gameObject(const char* texturesheet, int x, int y)
     
     xpos = x;
     ypos = y;
+    bool hasReceivedDirections = false;
 }
 
 void gameObject::update()
@@ -23,10 +24,35 @@ void gameObject::update()
     srcRect.x = 160;
     srcRect.y = 240;
     
-    dstRect.x = xpos;
-    dstRect.y = ypos;
     dstRect.h = 32;
     dstRect.w = 32;
+    if(hasReceivedDirections){
+        it = directions.begin();
+        playerMoves = true;
+        hasReceivedDirections = false;
+        for (MapSearchNode* point : directions) {
+            point -> PrintNodeInfo();
+        }
+    }
+
+    if (it==directions.end())
+    {
+        dstRect.x = (*directions.end())->x;
+        dstRect.y = (*directions.end())->y;
+    }
+    else if (playerMoves)
+    {
+        dstRect.y = ((*it) -> x)*32;
+        dstRect.x = ((*it) -> y)*32;
+        it++;
+        SDL_Delay(500);
+    }
+    else
+    {
+        dstRect.x = xpos*32;
+        dstRect.y = ypos*32;
+        SDL_Delay(2000);
+    }
 }
 
 void gameObject::render()

@@ -1,11 +1,11 @@
 #ifndef MapSearchNode_hpp
 #define MapSearchNode_hpp
-#include "stlastar.h"
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
 #include <vector>
 #include "map.hpp"
+#include "stlastar.h"
 
 class MapSearchNode
 {
