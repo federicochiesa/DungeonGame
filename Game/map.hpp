@@ -15,10 +15,8 @@ class map
 {
 
 private:
-    SDL_Rect src, dst;
-    SDL_Texture* wall;
-    SDL_Texture* grass;
-    SDL_Texture* water;
+    SDL_Rect grass, gravel, brick, water, sand, dst;
+    SDL_Texture* terrain;
     static const int mapHeight = 20;
     static const int mapWidth = 20;
     constexpr static const int lvlMap[mapHeight][mapWidth] =

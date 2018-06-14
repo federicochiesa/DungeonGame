@@ -11,13 +11,19 @@
 
 map::map()
 {
-    wall = textureManager::loadTexture("Game/assets/brick.png");
-    grass = textureManager::loadTexture("Game/assets/grass.png");
-    water = textureManager::loadTexture("Game/assets/water.png");
-    
-    
-    src.x = src.y = 0;
-    src.w = src.h = 16;
+    terrain = textureManager::loadTexture("Game/assets/terrain.png");
+
+    water.h = water.w = grass.h = grass.w = gravel.h = gravel.w = brick.h = brick.w = water.h = water.w = sand.h = sand.w = 16;
+    water.x = 208;
+    water.y = 192;
+    grass.x = 64;
+    grass.y = 80;
+    gravel.x = 48;
+    gravel.y = 16;
+    brick.x = 112;
+    brick.y = 0;
+    sand.x = 32;
+    sand.y = 16;
     dst.w = dst.h = 32;
     dst.x = dst.y = 0;
 }
@@ -37,13 +43,19 @@ void map::drawMap()
             switch (type)
             {
                 case 1:
-                    textureManager::Draw(grass, src, dst);
+                    textureManager::Draw(terrain, grass, dst);
                     break;
                 case 2:
-                    textureManager::Draw(water, src, dst);
+                    textureManager::Draw(terrain, gravel, dst);
+                    break;
+                case 3:
+                    textureManager::Draw(terrain, sand, dst);
+                    break;
+                case 4:
+                    textureManager::Draw(terrain, water, dst);
                     break;
                 case 9:
-                     textureManager::Draw(wall, src, dst);
+                     textureManager::Draw(terrain, brick, dst);
                     break;
             }
         }
